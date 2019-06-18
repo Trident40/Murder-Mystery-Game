@@ -60,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\padlockScript.cs" />
+    <Compile Include="Assets\dumbwaiterScript.cs" />
+    <Compile Include="Assets\keyScript.cs" />
+    <Compile Include="Assets\pianoScript.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\scripts\interactable.cs" />
     <Compile Include="Assets\scripts\inventoryScript.cs" />
     <Compile Include="Assets\scripts\lockScript.cs" />
+    <Compile Include="Assets\scripts\padlockScript.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\suspectScript.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
@@ -98,19 +101,19 @@
     <None Include="Assets\ProCore\ProBuilder\readme.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -317,28 +320,28 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
     </Reference>
     <Reference Include="pb_Stl">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="Poly2Tri">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/suryajasper2004/Desktop/unity projects/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/suryajasper2004/Documents/GitHub/Murder-Mystery-Game/Murder Mystery/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
