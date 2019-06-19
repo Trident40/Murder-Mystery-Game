@@ -71,14 +71,16 @@ public class inventoryScript : MonoBehaviour
         objects.Remove(objects[selected]);
     }
     public void SetSelected(int i) {
-        selected = i - 1;
         foreach (interactable obj in objects) {
             obj.gameObject.SetActive(false);
         }
         foreach (RawImage image in images)
             image.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        objects[i - 1].gameObject.SetActive(true);
-        images[i - 1].gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        currentObject = objects[i - 1];
+        selected = i - 1;
+        if (objects.Count > 0) {
+            objects[i - 1].gameObject.SetActive(true);
+            images[i - 1].gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            currentObject = objects[i - 1];
+        }
     }
 }

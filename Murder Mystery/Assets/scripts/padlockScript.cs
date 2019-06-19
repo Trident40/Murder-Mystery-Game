@@ -10,7 +10,7 @@ public class padlockScript : lockScript
         inventory = GameObject.FindGameObjectWithTag("inventory").GetComponent<inventoryScript>();
     }
     void OnMouseDown() {
-        if (inventoryScript.currentObject.Equals(key))
+        if (inventoryScript.currentObject != null && inventoryScript.currentObject.Equals(key))
             unlocked = true;
     }
 }

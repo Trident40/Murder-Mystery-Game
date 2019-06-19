@@ -60,9 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\dumbwaiterScript.cs" />
-    <Compile Include="Assets\keyScript.cs" />
-    <Compile Include="Assets\pianoScript.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -72,10 +69,13 @@
     <Compile Include="Assets\scripts\cameraScript.cs" />
     <Compile Include="Assets\scripts\comboLockScript.cs" />
     <Compile Include="Assets\scripts\deskScript.cs" />
+    <Compile Include="Assets\scripts\dumbwaiterScript.cs" />
     <Compile Include="Assets\scripts\interactable.cs" />
     <Compile Include="Assets\scripts\inventoryScript.cs" />
+    <Compile Include="Assets\scripts\keyScript.cs" />
     <Compile Include="Assets\scripts\lockScript.cs" />
     <Compile Include="Assets\scripts\padlockScript.cs" />
+    <Compile Include="Assets\scripts\pianoScript.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\suspectScript.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />

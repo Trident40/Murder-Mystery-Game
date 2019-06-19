@@ -13,22 +13,21 @@ public class cameraScript : MonoBehaviour
     [HideInInspector] public float velocityX;
     [HideInInspector] public float velocityY;
     public float shiftOffset;
-    private Vector3 shiftPose;
-    private Vector3 originalPose;
+    private float shiftPose;
+    private float originalPose;
     void Start()
     {
-        originalPose = transform.position;
-        shiftPose = new Vector3(transform.position.x, transform.position.y - shiftOffset, transform.position.z);
+        originalPose = transform.position.y;
+        shiftPose = transform.position.y - shiftOffset;
         Cursor.lockState = cursorLock;
     }
     // Update is called once per frame
     void Update()
     {
-        /*
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            transform.position = shiftPose;
+            transform.position = new Vector3(transform.position.x, shiftPose, transform.position.z);
         if (Input.GetKeyUp(KeyCode.LeftShift))
-            transform.position = originalPose; */
+            transform.position = new Vector3(transform.position.x, originalPose, transform.position.z);
         xRot -= sensitivity * Input.GetAxis("Mouse Y");
         yRot += sensitivity * Input.GetAxis("Mouse X");
         xRot = Mathf.Clamp(xRot, -90, 90);

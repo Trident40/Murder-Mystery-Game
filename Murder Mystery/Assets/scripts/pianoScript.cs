@@ -26,7 +26,6 @@ public class pianoScript : MonoBehaviour
         for (int i = 0; i < children; i++) {
             keys.Add(keyParent.transform.GetChild(i).gameObject);
         }
-        Debug.Log(keys.Count);
         keyDict = new SortedList<float, GameObject>();
         int index = 0;
         float pitchLevel = 1.25f;

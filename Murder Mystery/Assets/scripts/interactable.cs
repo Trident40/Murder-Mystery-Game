@@ -7,16 +7,27 @@ public class interactable : MonoBehaviour
     public string [] choices;
     public cameraScript camerascript;
     public Button choiceButton;
-    private List<Button> buttons = new List<Button>();
-    public static inventoryScript inventory;
     public Texture2D objectPNG;
+
     public const float instantiateOffset = 10f; 
+    public static inventoryScript inventory;
+    public static Transform plane;
+
+    private Vector3 originalposition;
+    private List<Button> buttons = new List<Button>();
+
     void Start() {
+        originalposition = transform.position;
+        plane = GameObject.FindGameObjectWithTag("plane").transform;
         inventory = GameObject.FindGameObjectWithTag("inventory").GetComponent<inventoryScript>();
         choiceButton.gameObject.SetActive(false);
     }
+    void Update() {
+        if (transform.position.y < plane.position.y) {
+            transform.position = originalposition;
+        }
+    }
     private void makeChoice() {
-        Debug.Log("making a choice");
         choiceButton.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         foreach(Button button in buttons) {
@@ -33,7 +44,6 @@ public class interactable : MonoBehaviour
         if (choices.Length == 0)
             pickUp();
         else {
-            Debug.Log(buttons.Count);
             camerascript.enabled = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
