@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
     [Header("Movement")]
+    public Text elapsedTime;
     public float speed;
     public Camera[] cams;
-    private int curr;
     public float range;
     public KeyCode interact;
     public inventoryScript inventory;
+    private int curr;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,12 @@ public class playerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (Time.time < 60)
+            elapsedTime.text = "Time: " + System.Math.Round(Time.time, 1)+ " seconds";
+        else if (Time.time < 3600)
+            elapsedTime.text = "Time: " + System.Math.Round((Time.time % 60), 1) + " minutes";
+        else
+            elapsedTime.text = "Time: " + System.Math.Round((Time.time % 3600), 2) + " hours";
         if (Input.GetKeyDown("c")) {
             cams[curr].gameObject.SetActive(false);
             if (++curr >= cams.Length)

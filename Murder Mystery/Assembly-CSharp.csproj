@@ -78,6 +78,11 @@
     <Compile Include="Assets\scripts\pianoScript.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\suspectScript.cs" />
+    <Compile Include="Assets\scripts\turnOffTVScript.cs" />
+    <Compile Include="Assets\scripts\videoScript.cs" />
+    <Compile Include="Assets\scripts\Weapon.cs" />
+    <Compile Include="Assets\scripts\Weighable.cs" />
+    <Compile Include="Assets\weighingScript.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
@@ -86,6 +91,7 @@
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
+    <None Include="Assets\Prefabs\mansion\tex\Notes.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />

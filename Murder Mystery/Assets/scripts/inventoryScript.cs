@@ -7,11 +7,18 @@ public class inventoryScript : MonoBehaviour
     public GameObject handPosition;
     public List<interactable> objects;
     public List<RawImage> images;
+    public Camera currentCam;
+    public ParticleSystem impact;
     [HideInInspector] public static interactable currentObject;
     private int selected;
-    // Start is called before the first frame update
+    public cameraScript camerascript;
+    public Button choiceButton;
+    private List<Button> buttons = new List<Button>();
+
     void Start()
     {
+        if (choiceButton != null)
+            choiceButton.gameObject.SetActive(false);
         //Debug.Log(images.Count);
         for (int i = 0; i < objects.Count; i++) {
             objects[i].gameObject.transform.SetParent(handPosition.transform);
@@ -24,24 +31,75 @@ public class inventoryScript : MonoBehaviour
             images[i].texture = objects[i].objectPNG;
         }
     }
+    private void makeChoice(Button buttonVar) {
+        Debug.Log(buttonVar.transform.GetComponentInChildren<Text>().text);
+        choiceButton.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        foreach (Button button in buttons)
+            button.gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>().enabled = true;
+        camerascript.enabled = true;
+    }
+    private void chooseBtw(params string[] choices) {
+        camerascript.enabled = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        int index = 1;
+        int factor = 1;
+        float height = choiceButton.gameObject.GetComponent<RectTransform>().rect.height;
+        choiceButton.gameObject.SetActive(true);
+        choiceButton.onClick.AddListener(() => { makeChoice(choiceButton); } );
+        choiceButton.GetComponentInChildren<Text>().text = choices[0];
+        buttons.Add(choiceButton);
+        for (int i = 1; i < choices.Length; i++) {
+            Button newButton = Instantiate(choiceButton);
+            newButton.onClick.AddListener(() => { makeChoice(newButton); });
+            newButton.gameObject.transform.SetParent(choiceButton.transform.parent);
+            newButton.gameObject.GetComponent<RectTransform>().position = new Vector3(choiceButton.gameObject.transform.position.x, choiceButton.gameObject.transform.position.y + (height * index * factor), choiceButton.gameObject.transform.position.z);
+            if (factor < 0)
+                index++;
+            factor *= -1;
+            newButton.GetComponentInChildren<Text>().text = choices[i];
+            buttons.Add(newButton);
+        }
+    }
+
+    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && currentObject != null) {
+            chooseBtw("hello", "bye", "howdy");
+            RaycastHit hit;
+            if (Physics.Raycast(currentCam.gameObject.transform.position, currentCam.gameObject.transform.forward, out hit, 100)) {
+                if (currentObject.GetComponent<Weapon>() != null) {
+                    Weapon gun = currentObject.GetComponent<Weapon>();
+                    if (gun.fire()) {
+                        Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+                    }
+                }
+            }
+        }
         for (int i = 1; i <= objects.Count; i++) {
             if (Input.GetKeyDown(i.ToString())) {
                 SetSelected(i);
             }
         }
         if (Input.GetKeyDown("q")) {
-            objects[selected].transform.parent = null;
-            //objects[selected].GetComponent<Rigidbody>().isKinematic = false;
-            objects[selected].GetComponent<Collider>().enabled = true;
-            objects[selected].GetComponent<Rigidbody>().useGravity = true;
-            Remove(selected);
-            ResetImages();
-            SetSelected(1);
+            Drop();
         }
+    }
+    public interactable Drop() {
+        objects[selected].transform.parent = null;
+        //objects[selected].GetComponent<Rigidbody>().isKinematic = false;
+        objects[selected].GetComponent<Collider>().enabled = true;
+        objects[selected].GetComponent<Rigidbody>().useGravity = true;
+        interactable g = objects[selected];
+        Remove();
+        ResetImages();
+        SetSelected(1);
+        return g;
     }
     public void Add(interactable obj) {
         objects.Add(obj);
@@ -67,7 +125,7 @@ public class inventoryScript : MonoBehaviour
         if (objects.Count > 0)
             SetSelected(1);
     }
-    public void Remove(int ind) {
+    public void Remove() {
         objects.Remove(objects[selected]);
     }
     public void SetSelected(int i) {
