@@ -10,6 +10,7 @@ public class cameraScript : MonoBehaviour
     [HideInInspector] public float currentY;
     [HideInInspector] public float velocityX;
     [HideInInspector] public float velocityY;
+    public bool clampX;
     public float shiftOffset;
     private float shiftPose;
     private float originalPose;
@@ -29,6 +30,8 @@ public class cameraScript : MonoBehaviour
         xRot -= sensitivity * Input.GetAxis("Mouse Y");
         yRot += sensitivity * Input.GetAxis("Mouse X");
         xRot = Mathf.Clamp(xRot, -90, 90);
+        if (clampX)
+            yRot = Mathf.Clamp(yRot, -90, 90);
         currentX = Mathf.SmoothDamp(currentX, xRot, ref velocityX, 0.1f);
         currentY = Mathf.SmoothDamp(currentY, yRot, ref velocityY, 0.1f);
         transform.rotation = Quaternion.Euler(currentX, currentY, 0.0f);

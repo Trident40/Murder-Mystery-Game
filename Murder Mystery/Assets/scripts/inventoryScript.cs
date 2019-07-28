@@ -19,11 +19,9 @@ public class inventoryScript : MonoBehaviour
     {
         if (choiceButton != null)
             choiceButton.gameObject.SetActive(false);
-        //Debug.Log(images.Count);
         for (int i = 0; i < objects.Count; i++) {
             objects[i].gameObject.transform.SetParent(handPosition.transform);
             objects[i].gameObject.transform.position = handPosition.transform.position;
-            //objects[i].gameObject.GetComponent<Rigidbody>().isKinematic = true;
             objects[i].GetComponent<Rigidbody>().useGravity = false;
             objects[i].GetComponent<Collider>().enabled = false;
             objects[i].gameObject.SetActive(false);
@@ -32,28 +30,34 @@ public class inventoryScript : MonoBehaviour
         }
     }
     private void makeChoice(Button buttonVar) {
+        Debug.Log(buttons.Count);
         Debug.Log(buttonVar.transform.GetComponentInChildren<Text>().text);
         choiceButton.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         foreach (Button button in buttons)
             button.gameObject.SetActive(false);
+        for (int i = 1; i < buttons.Count; i++) {
+            buttons.Remove(buttons[1]);
+        }
         GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>().enabled = true;
         camerascript.enabled = true;
     }
-    private void chooseBtw(params string[] choices) {
+    private void chooseBtwFunction(string[] choices, bool pickUp) {
         camerascript.enabled = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         int index = 1;
         int factor = 1;
         float height = choiceButton.gameObject.GetComponent<RectTransform>().rect.height;
+
         choiceButton.gameObject.SetActive(true);
         choiceButton.onClick.AddListener(() => { makeChoice(choiceButton); } );
         choiceButton.GetComponentInChildren<Text>().text = choices[0];
         buttons.Add(choiceButton);
         for (int i = 1; i < choices.Length; i++) {
             Button newButton = Instantiate(choiceButton);
-            newButton.onClick.AddListener(() => { makeChoice(newButton); });
+            if (pickUp)
+                newButton.onClick.AddListener(() => { makeChoice(newButton); });
             newButton.gameObject.transform.SetParent(choiceButton.transform.parent);
             newButton.gameObject.GetComponent<RectTransform>().position = new Vector3(choiceButton.gameObject.transform.position.x, choiceButton.gameObject.transform.position.y + (height * index * factor), choiceButton.gameObject.transform.position.z);
             if (factor < 0)
@@ -63,14 +67,16 @@ public class inventoryScript : MonoBehaviour
             buttons.Add(newButton);
         }
     }
+    private void chooseBtw(params string [] choices) {
+        chooseBtwFunction(choices, true);
+    }
 
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && currentObject != null) {
-            chooseBtw("hello", "bye", "howdy");
+        if (Input.GetKeyDown(KeyCode.Mouse0) && camerascript.enabled && currentObject != null) {
             RaycastHit hit;
             if (Physics.Raycast(currentCam.gameObject.transform.position, currentCam.gameObject.transform.forward, out hit, 100)) {
                 if (currentObject.GetComponent<Weapon>() != null) {
@@ -102,6 +108,7 @@ public class inventoryScript : MonoBehaviour
         return g;
     }
     public void Add(interactable obj) {
+        chooseBtw("Pick Up", "Cancel");
         objects.Add(obj);
         obj.gameObject.SetActive(false);
         obj.transform.SetParent(handPosition.transform);
