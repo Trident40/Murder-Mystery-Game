@@ -22,7 +22,8 @@ public class pianoScript : MonoBehaviour
         //rainbowTestB = rainbowTest.b;
         keys = new List<GameObject>();
         int children = keyParent.transform.childCount;
-        for (int i = 0; i < children; i++) {
+
+        for (int i = 0; i < children; i++) { 
             keys.Add(keyParent.transform.GetChild(i).gameObject);
         }
         keyDict = new SortedList<float, GameObject>();

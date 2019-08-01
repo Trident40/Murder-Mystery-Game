@@ -29,6 +29,7 @@ public class inventoryScript : MonoBehaviour
             images[i].texture = objects[i].objectPNG;
         }
     }
+    /*
     private void makeChoice(Button buttonVar) {
         Debug.Log(buttons.Count);
         Debug.Log(buttonVar.transform.GetComponentInChildren<Text>().text);
@@ -70,10 +71,7 @@ public class inventoryScript : MonoBehaviour
     private void chooseBtw(params string [] choices) {
         chooseBtwFunction(choices, true);
     }
-
-    // Start is called before the first frame update
-
-    // Update is called once per frame
+    */
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && camerascript.enabled && currentObject != null) {
@@ -108,7 +106,7 @@ public class inventoryScript : MonoBehaviour
         return g;
     }
     public void Add(interactable obj) {
-        chooseBtw("Pick Up", "Cancel");
+        //chooseBtw("Pick Up", "Cancel");
         objects.Add(obj);
         obj.gameObject.SetActive(false);
         obj.transform.SetParent(handPosition.transform);

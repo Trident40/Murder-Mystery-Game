@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/questioning.unity
     guid: 9434c704d9f5b455aa486a32e6fc766d
   - enabled: 1
+    path: Assets/Scenes/carScene.unity
+    guid: 5ceff4625d6cd420899de65bfb7fe21e
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: e73dd5ba9126744c49fd356e796e1db2
   m_configObjects: {}

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{638D6F56-5FBF-2A00-4710-9CA3E86A254C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/NewMonoBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/pauseMenu.cs">
     <Files>
       <File FileName="Assets/scripts/cameraScript.cs" Line="34" Column="47" />
       <File FileName="Assets/scripts/playerController.cs" Line="30" Column="95" />
@@ -8,14 +8,18 @@
       <File FileName="../../Shoot-for-the-Riches/ShootForTheRiches/Assets/scripts/controller3d.cs" Line="78" Column="10" />
       <File FileName="Assets/scripts/turnOffTVScript.cs" Line="22" Column="10" />
       <File FileName="Assets/scripts/Weighable.cs" Line="11" Column="1" />
-      <File FileName="Assets/scripts/inventoryScript.cs" Line="52" Column="9" />
+      <File FileName="Assets/scripts/inventoryScript.cs" Line="46" Column="38" />
       <File FileName="Assets/scripts/interactable.cs" Line="14" Column="38" />
-      <File FileName="Assets/scripts/pianoScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/pianoScript.cs" Line="27" Column="66" />
       <File FileName="Assets/scripts/keyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/summonSuspects.cs" Line="12" Column="6" />
-      <File FileName="Assets/scripts/talkToPlayer.cs" Line="6" Column="2" />
+      <File FileName="Assets/scripts/talkToPlayer.cs" Line="51" Column="14" />
       <File FileName="Assets/scripts/radioScript.cs" Line="22" Column="65" />
-      <File FileName="Assets/scripts/NewMonoBehaviour.cs" Line="4" Column="14" />
+      <File FileName="Assets/scripts/SceneController.cs" Line="8" Column="41" />
+      <File FileName="Assets/scripts/simpleController.cs" Line="36" Column="103" />
+      <File FileName="Assets/scripts/mansionScript.cs" Line="10" Column="42" />
+      <File FileName="Assets/scripts/AI_Walking.cs" Line="15" Column="5" />
+      <File FileName="Assets/minimap.cs" Line="10" Column="6" />
+      <File FileName="Assets/pauseMenu.cs" Line="8" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
