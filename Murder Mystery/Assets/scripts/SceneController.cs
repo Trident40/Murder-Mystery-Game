@@ -1,18 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class SceneController : MonoBehaviour {
-    public static void changeSceneTo(int n) {
+    private Slider slider;
+    private Text text;
+
+    public SceneController(Slider slider, Text text) {
+        this.slider = slider;
+        this.text = text;
+    }
+
+    public void LoadLevel(int n) {
         SceneManager.LoadScene(n);
     }
-    public static void goToNextScene() {
+    IEnumerator LoadAsynchronously(int n) {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(n);
+        while (!operation.isDone) {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            slider.value = progress;
+            text.text = progress * 100f + "%";
+            yield return null;
+        }
+    }
+    public void goToNextScene() {
         int current = SceneManager.GetActiveScene().buildIndex;
         if (current + 1 < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public static void goToPreviousScene() {
+    public void goToPreviousScene() {
         int current = SceneManager.GetActiveScene().buildIndex;
         if (current > 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            LoadLevel(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

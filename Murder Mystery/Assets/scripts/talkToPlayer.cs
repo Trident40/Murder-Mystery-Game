@@ -35,7 +35,6 @@ public class talkToPlayer : MonoBehaviour
         if (answerQuestions) {
             if (Input.GetKeyDown("d")) {
                 if (current < lines.Length) {
-                      
                     textBox.gameObject.SetActive(true);
                     textBox.text = lines[current++];
                 }

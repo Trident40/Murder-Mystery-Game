@@ -91,7 +91,10 @@ public class inventoryScript : MonoBehaviour
             }
         }
         if (Input.GetKeyDown("q")) {
-            Drop();
+            if (currentObject.GetComponent<InteractableWithID>() == null)
+                Drop();
+            else
+                SimpleDrop(currentObject.GetComponent<InteractableWithID>());
         }
     }
     public interactable Drop() {
@@ -105,6 +108,12 @@ public class inventoryScript : MonoBehaviour
         SetSelected(1);
         return g;
     }
+    public void SimpleDrop(InteractableWithID interactableObj) {
+        interactableObj.Dropped();
+        Remove();
+        ResetImages();
+        SetSelected(1);
+    }
     public void Add(interactable obj) {
         //chooseBtw("Pick Up", "Cancel");
         objects.Add(obj);
@@ -114,6 +123,10 @@ public class inventoryScript : MonoBehaviour
         //obj.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         obj.GetComponent<Rigidbody>().useGravity = false;
         obj.GetComponent<Collider>().enabled = false;
+        ResetImages();
+    }
+    public void SimpleAdd(InteractableWithID obj) {
+        objects.Add(obj);
         ResetImages();
     }
     private void ResetImages() {

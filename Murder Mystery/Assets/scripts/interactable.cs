@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class interactable : MonoBehaviour
 {
     public Texture2D objectPNG;
-
     public const float instantiateOffset = 10f; 
     public static inventoryScript inventory;
     public static Transform plane;
-
-    private Vector3 originalposition;
+    protected Vector3 originalposition;
 
     void Start() {
         originalposition = transform.position;
